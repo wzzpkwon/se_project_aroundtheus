@@ -22,6 +22,7 @@
 }
 
 .profile__name {
+  margin: 0;
   font-size: 42px;
   line-height: 1.14;
   font-weight: 500;
@@ -48,6 +49,7 @@
 }
 
 .profile__description {
+  margin: 0;
   grid-area: description;
   max-width: 415px;
   font-weight: 400;
