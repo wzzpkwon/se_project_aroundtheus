@@ -1,0 +1,135 @@
+.profile {
+  display: flex;
+  max-width: 880px;
+  margin: 40px auto 51px;
+}
+
+.profile__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "name button"
+    "description description";
+  grid-template-columns: minmax(auto, 375px) auto;
+  gap: 16px;
+  padding: 22px 0 21px 30px;
+  max-width: 415px;
+}
+
+.profile__name {
+  font-size: 42px;
+  line-height: 1.14;
+  font-weight: 500;
+  grid-area: name;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.profile__edit-button {
+  grid-area: button;
+  align-self: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: solid 1px #ffffff;
+  transition: opacity 0.1s linear;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
+}
+
+.profile__description {
+  grid-area: description;
+  max-width: 415px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.21;
+}
+
+.profile__add-button {
+  align-self: center;
+  background: transparent;
+  border: solid 2px #ffffff;
+  margin-left: auto;
+  padding: 0;
+  width: 150px;
+  height: 50px;
+  transition: opacity 0.1s linear;
+  cursor: pointer;
+}
+
+.profile__add-button:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 825px) {
+  .profile__logo {
+    width: 40%;
+  }
+
+  .profile__name {
+    max-width: 285.5px;
+  }
+
+  .profile__info {
+    max-width: 325.5px;
+    padding-left: 15px;
+  }
+
+  .profile__name {
+    font-size: 32px;
+  }
+
+  .profile__add-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 618px) {
+  .profile {
+    max-width: 282px;
+    flex-direction: column;
+    align-items: center;
+    margin: 42px auto 36px;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    padding: 30px 0 36px;
+  }
+
+  .profile__name {
+    width: 196px;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.21;
+  }
+
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+  }
+
+  .profile__description {
+    font-size: 14px;
+    line-height: 1.21;
+  }
+
+  .profile__add-button {
+    width: 282px;
+    margin: auto;
+  }
+}

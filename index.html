@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Around the US interactive page" />
+    <meta name="author" content="Kwon" />
+    <meta name="keywords" content="explorer, valley, lake, mountains" />
+    <title>Around the U.S.</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+
+  <body class="page">
+    <div class="page__content">
+      <header class="header">
+        <img
+          src="./images/header.png"
+          alt="Around the U.S. vector image"
+          class="header__logo"
+        />
+      </header>
+      <main class="content">
+        <section class="profile">
+          <img
+            src="./images/jacques-cousteau.jpg"
+            alt="photo of Jacques Cousteau"
+            class="profile__avatar"
+          />
+          <div class="profile__info">
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button class="profile__edit-button" type="button">
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M10 1.32827L2.60377 8.7666L1.28302 7.41936L8.66038 0L10 1.32827ZM0 10L1.96226 9.41177L0.584906 8.08349L0 10Z"
+                  fill="white"
+                />
+              </svg>
+            </button>
+            <h2 class="profile__description">Explorer</h2>
+          </div>
+          <button class="profile__add-button" type="button">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M22 9.77778H12.2222V0H9.77778V9.77778H0V12.2222H9.77778V22H12.2222V12.2222H22V9.77778Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+        </section>
+        <section class="gallery">
+          <ul class="gallery__cards">
+            <li class="card">
+              <img
+                src="./images/yosemite.jpg"
+                alt="Yosemite Valley photo"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__text">Yosemite Valley</h2>
+                <button class="card__like-button" type="button">
+                  <svg
+                    width="21"
+                    height="18"
+                    viewBox="0 0 21 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.3764 9.27081C21.5412 7.14636 21.5412 3.69676 19.3764 1.59334C17.2115 -0.531113 13.6964 -0.531113 11.5315 1.59334L10.4812 2.64505L9.43098 1.61437C7.26614 -0.531113 3.75096 -0.531113 1.60755 1.59334C0.557285 2.62401 0 3.99124 0 5.44259C0 6.89395 0.578719 8.26117 1.60755 9.29185L10.4812 18L19.3764 9.27081ZM1.37178 5.44259C1.37178 4.34882 1.80046 3.33918 2.59352 2.58195C3.40801 1.78265 4.45828 1.383 5.50855 1.383C6.55882 1.383 7.60909 1.78265 8.42358 2.58195L10.4812 4.58019L12.5389 2.56091C14.1465 0.983348 16.7829 0.983348 18.369 2.56091C19.1406 3.31814 19.5907 4.32778 19.5907 5.42156C19.5907 6.51534 19.162 7.52498 18.369 8.28221L10.4812 16.0438L2.59352 8.30324C1.82189 7.52498 1.37178 6.51534 1.37178 5.44259Z"
+                      fill="black"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/lake-louise.jpg"
+                alt="Lake Louise photo"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__text">Lake Louise</h2>
+                <button class="card__like-button" type="button">
+                  <svg
+                    width="21"
+                    height="18"
+                    viewBox="0 0 21 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.3764 9.27081C21.5412 7.14636 21.5412 3.69676 19.3764 1.59334C17.2115 -0.531113 13.6964 -0.531113 11.5315 1.59334L10.4812 2.64505L9.43098 1.61437C7.26614 -0.531113 3.75096 -0.531113 1.60755 1.59334C0.557285 2.62401 0 3.99124 0 5.44259C0 6.89395 0.578719 8.26117 1.60755 9.29185L10.4812 18L19.3764 9.27081ZM1.37178 5.44259C1.37178 4.34882 1.80046 3.33918 2.59352 2.58195C3.40801 1.78265 4.45828 1.383 5.50855 1.383C6.55882 1.383 7.60909 1.78265 8.42358 2.58195L10.4812 4.58019L12.5389 2.56091C14.1465 0.983348 16.7829 0.983348 18.369 2.56091C19.1406 3.31814 19.5907 4.32778 19.5907 5.42156C19.5907 6.51534 19.162 7.52498 18.369 8.28221L10.4812 16.0438L2.59352 8.30324C1.82189 7.52498 1.37178 6.51534 1.37178 5.44259Z"
+                      fill="black"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/bald-mountains.jpg"
+                alt="Bald Mountains photo"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__text">Bald Mountains</h2>
+                <button class="card__like-button" type="button">
+                  <svg
+                    width="21"
+                    height="18"
+                    viewBox="0 0 21 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.3764 9.27081C21.5412 7.14636 21.5412 3.69676 19.3764 1.59334C17.2115 -0.531113 13.6964 -0.531113 11.5315 1.59334L10.4812 2.64505L9.43098 1.61437C7.26614 -0.531113 3.75096 -0.531113 1.60755 1.59334C0.557285 2.62401 0 3.99124 0 5.44259C0 6.89395 0.578719 8.26117 1.60755 9.29185L10.4812 18L19.3764 9.27081ZM1.37178 5.44259C1.37178 4.34882 1.80046 3.33918 2.59352 2.58195C3.40801 1.78265 4.45828 1.383 5.50855 1.383C6.55882 1.383 7.60909 1.78265 8.42358 2.58195L10.4812 4.58019L12.5389 2.56091C14.1465 0.983348 16.7829 0.983348 18.369 2.56091C19.1406 3.31814 19.5907 4.32778 19.5907 5.42156C19.5907 6.51534 19.162 7.52498 18.369 8.28221L10.4812 16.0438L2.59352 8.30324C1.82189 7.52498 1.37178 6.51534 1.37178 5.44259Z"
+                      fill="black"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/latemar.jpg"
+                alt="Latemar photo"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__text">Latemar</h2>
+                <button class="card__like-button" type="button">
+                  <svg
+                    width="21"
+                    height="18"
+                    viewBox="0 0 21 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.3764 9.27081C21.5412 7.14636 21.5412 3.69676 19.3764 1.59334C17.2115 -0.531113 13.6964 -0.531113 11.5315 1.59334L10.4812 2.64505L9.43098 1.61437C7.26614 -0.531113 3.75096 -0.531113 1.60755 1.59334C0.557285 2.62401 0 3.99124 0 5.44259C0 6.89395 0.578719 8.26117 1.60755 9.29185L10.4812 18L19.3764 9.27081ZM1.37178 5.44259C1.37178 4.34882 1.80046 3.33918 2.59352 2.58195C3.40801 1.78265 4.45828 1.383 5.50855 1.383C6.55882 1.383 7.60909 1.78265 8.42358 2.58195L10.4812 4.58019L12.5389 2.56091C14.1465 0.983348 16.7829 0.983348 18.369 2.56091C19.1406 3.31814 19.5907 4.32778 19.5907 5.42156C19.5907 6.51534 19.162 7.52498 18.369 8.28221L10.4812 16.0438L2.59352 8.30324C1.82189 7.52498 1.37178 6.51534 1.37178 5.44259Z"
+                      fill="black"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/vanoise.jpg"
+                alt="Vanoise National Park photo"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__text">Vanoise National Park</h2>
+                <button class="card__like-button" type="button">
+                  <svg
+                    width="21"
+                    height="18"
+                    viewBox="0 0 21 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.3764 9.27081C21.5412 7.14636 21.5412 3.69676 19.3764 1.59334C17.2115 -0.531113 13.6964 -0.531113 11.5315 1.59334L10.4812 2.64505L9.43098 1.61437C7.26614 -0.531113 3.75096 -0.531113 1.60755 1.59334C0.557285 2.62401 0 3.99124 0 5.44259C0 6.89395 0.578719 8.26117 1.60755 9.29185L10.4812 18L19.3764 9.27081ZM1.37178 5.44259C1.37178 4.34882 1.80046 3.33918 2.59352 2.58195C3.40801 1.78265 4.45828 1.383 5.50855 1.383C6.55882 1.383 7.60909 1.78265 8.42358 2.58195L10.4812 4.58019L12.5389 2.56091C14.1465 0.983348 16.7829 0.983348 18.369 2.56091C19.1406 3.31814 19.5907 4.32778 19.5907 5.42156C19.5907 6.51534 19.162 7.52498 18.369 8.28221L10.4812 16.0438L2.59352 8.30324C1.82189 7.52498 1.37178 6.51534 1.37178 5.44259Z"
+                      fill="black"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="card">
+              <img
+                src="./images/lago.jpg"
+                alt="Lago di Braies photo"
+                class="card__image"
+              />
+              <div class="card__content">
+                <h2 class="card__text">Lago di Braies</h2>
+                <button class="card__like-button" type="button">
+                  <svg
+                    width="21"
+                    height="18"
+                    viewBox="0 0 21 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19.3764 9.27081C21.5412 7.14636 21.5412 3.69676 19.3764 1.59334C17.2115 -0.531113 13.6964 -0.531113 11.5315 1.59334L10.4812 2.64505L9.43098 1.61437C7.26614 -0.531113 3.75096 -0.531113 1.60755 1.59334C0.557285 2.62401 0 3.99124 0 5.44259C0 6.89395 0.578719 8.26117 1.60755 9.29185L10.4812 18L19.3764 9.27081ZM1.37178 5.44259C1.37178 4.34882 1.80046 3.33918 2.59352 2.58195C3.40801 1.78265 4.45828 1.383 5.50855 1.383C6.55882 1.383 7.60909 1.78265 8.42358 2.58195L10.4812 4.58019L12.5389 2.56091C14.1465 0.983348 16.7829 0.983348 18.369 2.56091C19.1406 3.31814 19.5907 4.32778 19.5907 5.42156C19.5907 6.51534 19.162 7.52498 18.369 8.28221L10.4812 16.0438L2.59352 8.30324C1.82189 7.52498 1.37178 6.51534 1.37178 5.44259Z"
+                      fill="black"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+      <footer class="footer">
+        <p class="footer__content">© 2022 Around The U.S.</p>
+      </footer>
+    </div>
+  </body>
+</html>
