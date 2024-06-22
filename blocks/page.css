@@ -1,11 +1,9 @@
 .page {
   font-family: "Inter", Arial, sans-serif;
+  background-color: #000000;
 }
 
 .page__content {
-  background-color: #000000;
-  max-width: 1280px;
-  min-width: 320px;
   margin: 0 auto;
   box-sizing: border-box;
   padding: 45px 19px 60px;
@@ -20,6 +18,6 @@
 
 @media screen and (max-width: 618px) {
   .page__content {
-    padding: 28px 19px 36px;
+    padding: 28px 0 36px;
   }
 }

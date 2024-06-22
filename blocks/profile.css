@@ -55,12 +55,16 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.21;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .profile__add-button {
   align-self: center;
   background: transparent;
   border: solid 2px #ffffff;
+  border-radius: 2px;
   margin-left: auto;
   padding: 0;
   width: 150px;
@@ -74,12 +78,8 @@
 }
 
 @media screen and (max-width: 825px) {
-  .profile__logo {
-    width: 40%;
-  }
-
   .profile__name {
-    max-width: 285.5px;
+    font-size: 32px;
   }
 
   .profile__info {
@@ -87,13 +87,8 @@
     padding-left: 15px;
   }
 
-  .profile__name {
-    font-size: 32px;
-  }
-
   .profile__add-button {
     width: 50px;
-    height: 50px;
   }
 }
 
