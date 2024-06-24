@@ -77,7 +77,7 @@
   opacity: 0.6;
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 768px) {
   .profile__name {
     font-size: 32px;
   }
@@ -92,7 +92,7 @@
   }
 }
 
-@media screen and (max-width: 618px) {
+@media screen and (max-width: 598px) {
   .profile {
     max-width: 282px;
     flex-direction: column;

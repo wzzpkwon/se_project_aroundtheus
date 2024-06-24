@@ -35,3 +35,5 @@ This project aims to build a responsive webpage to showcase overall knowledge an
 ## Link
 
 [Around the U.S.](https://wzzpkwon.github.io/se_project_aroundtheus/)
+
+[Project Video](https://drive.google.com/file/d/1nXMLewDcXCvc3rznVtbxUoB1Dn-jjUOw/view?usp=drive_link)

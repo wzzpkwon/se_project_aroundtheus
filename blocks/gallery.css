@@ -10,3 +10,10 @@
   list-style-type: none;
   max-width: 880px;
 }
+
+@media screen and (max-width: 598px) {
+  .gallery__cards {
+    padding: 19px;
+    max-width: 320px;
+  }
+}
