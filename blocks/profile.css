@@ -109,8 +109,7 @@
   }
 
   .profile__name {
-    width: 196px;
-    font-weight: 500;
+    max-width: 196px;
     font-size: 22px;
     line-height: 1.21;
   }
@@ -121,6 +120,7 @@
   }
 
   .profile__description {
+    max-width: 282px;
     font-size: 14px;
     line-height: 1.21;
   }

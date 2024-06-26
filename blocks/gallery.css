@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 598px) {
   .gallery__cards {
-    padding: 19px;
+    padding: 0 19px;
     max-width: 320px;
   }
 }
