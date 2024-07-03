@@ -41,6 +41,45 @@
                 class="edit-button"
               />
             </button>
+            <div class="modal modal_opened">
+              <div class="modal__container">
+                <button
+                  aria-label="close"
+                  class="modal__close-button"
+                  type="button"
+                >
+                  <img
+                    src="./images/close-button.svg"
+                    alt="close icon"
+                    class="close-button"
+                  />
+                </button>
+                <h2 class="modal__title">Edit Profile</h2>
+                <form class="modal__form form">
+                  <fieldset class="form__fieldset">
+                    <label class="form__label">
+                      <input
+                        type="text"
+                        class="form__input"
+                        placeholder="Name"
+                        required
+                      />
+                    </label>
+                    <label class="form__label">
+                      <input
+                        type="text"
+                        class="form__input"
+                        placeholder="Description"
+                        required
+                      />
+                    </label>
+                  </fieldset>
+                  <fieldset class="form__fieldset">
+                    <button class="form__button" type="submit">Save</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
             <h2 class="profile__description">Explorer</h2>
           </div>
           <button aria-label="add" class="profile__add-button" type="button">
