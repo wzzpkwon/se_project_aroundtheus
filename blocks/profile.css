@@ -117,6 +117,12 @@
     height: 18px;
   }
 
+  .profile__edit-button-img {
+    width: 7.5px;
+    height: 7.5px;
+    padding-bottom: 2.5px;
+  }
+
   .profile__description {
     max-width: 282px;
     font-size: 14px;
@@ -125,5 +131,10 @@
   .profile__add-button {
     width: 282px;
     margin: auto;
+  }
+
+  .profile__add-button-img {
+    width: 16px;
+    height: 16px;
   }
 }
