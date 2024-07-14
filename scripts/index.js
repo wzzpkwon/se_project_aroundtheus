@@ -25,17 +25,32 @@ const initialCards = [
   },
 ];
 
+const profileFormElement = document.querySelector(".profile");
+const profileDesc = profileFormElement.querySelector(".profile__description");
+const profileName = profileFormElement.querySelector(".profile__name");
+
+const modalElement = document.querySelector(".modal");
+const inputName = modalElement.querySelector(".form__input_type_name");
+const inputDesc = modalElement.querySelector(".form__input_type_description");
+
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const modalCloseBtn = document.querySelector(".modal__close-button");
-const modal = document.querySelector(".modal");
+const formSubmitBtn = modalElement.querySelector(".form__button");
 
-function openModal() {
-  modal.classList.toggle("modal_opened");
+function handleProfileFormSubmit(evt) {
+  evt.preventDefault();
+  profileName.textContent = inputName.value;
+  profileDesc.textContent = inputDesc.value;
+
+  toggleModal();
 }
 
-function closeModal() {
-  modal.classList.toggle("modal_opened");
+function toggleModal() {
+  inputName.value = profileName.textContent;
+  inputDesc.value = profileDesc.textContent;
+  modalElement.classList.toggle("modal_opened");
 }
 
-profileEditBtn.addEventListener("click", openModal);
-modalCloseBtn.addEventListener("click", closeModal);
+profileEditBtn.addEventListener("click", toggleModal);
+formSubmitBtn.addEventListener("click", handleProfileFormSubmit);
+modalCloseBtn.addEventListener("click", toggleModal);
