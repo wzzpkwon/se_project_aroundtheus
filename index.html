@@ -9,6 +9,21 @@
     <title>Around the U.S.</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="./pages/index.css" />
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__content">
+          <h2 class="card__text"></h2>
+          <button aria-label="like" class="card__like-button" type="button">
+            <img
+              src="./images/heart.svg"
+              alt="heart icon"
+              class="card__like-button-img"
+            />
+          </button>
+        </div>
+      </li>
+    </template>
   </head>
 
   <body class="page">
@@ -55,7 +70,7 @@
                   />
                 </button>
                 <h2 class="modal__title">Edit Profile</h2>
-                <form id="modal form" class="modal__form form">
+                <form id="modal-form" class="modal__form form">
                   <fieldset class="form__fieldset">
                     <label class="form__label">
                       <input
@@ -91,134 +106,7 @@
           </button>
         </section>
         <section class="gallery">
-          <ul class="gallery__cards">
-            <li class="card">
-              <img
-                src="./images/yosemite.jpg"
-                alt="Yosemite Valley photo"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__text">Yosemite Valley</h2>
-                <button
-                  aria-label="like"
-                  class="card__like-button"
-                  type="button"
-                >
-                  <img
-                    src="./images/heart.svg"
-                    alt="heart icon"
-                    class="card__like-button-img"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lake-louise.jpg"
-                alt="Lake Louise photo"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__text">Lake Louise</h2>
-                <button
-                  aria-label="like"
-                  class="card__like-button"
-                  type="button"
-                >
-                  <img
-                    src="./images/heart.svg"
-                    alt="heart icon"
-                    class="card__like-button-img"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/bald-mountains.jpg"
-                alt="Bald Mountains photo"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__text">Bald Mountains</h2>
-                <button
-                  aria-label="like"
-                  class="card__like-button"
-                  type="button"
-                >
-                  <img
-                    src="./images/heart.svg"
-                    alt="heart icon"
-                    class="card__like-button-img"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/latemar.jpg"
-                alt="Latemar photo"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__text">Latemar</h2>
-                <button
-                  aria-label="like"
-                  class="card__like-button"
-                  type="button"
-                >
-                  <img
-                    src="./images/heart.svg"
-                    alt="heart icon"
-                    class="card__like-button-img"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/vanoise.jpg"
-                alt="Vanoise National Park photo"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__text">Vanoise National Park</h2>
-                <button
-                  aria-label="like"
-                  class="card__like-button"
-                  type="button"
-                >
-                  <img
-                    src="./images/heart.svg"
-                    alt="heart icon"
-                    class="card__like-button-img"
-                  />
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                src="./images/lago.jpg"
-                alt="Lago di Braies photo"
-                class="card__image"
-              />
-              <div class="card__content">
-                <h2 class="card__text">Lago di Braies</h2>
-                <button
-                  aria-label="like"
-                  class="card__like-button"
-                  type="button"
-                >
-                  <img
-                    src="./images/heart.svg"
-                    alt="heart icon"
-                    class="card__like-button-img"
-                  />
-                </button>
-              </div>
-            </li>
-          </ul>
+          <ul class="gallery__cards"></ul>
         </section>
       </main>
       <footer class="footer">

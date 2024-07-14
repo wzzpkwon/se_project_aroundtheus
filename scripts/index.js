@@ -1,41 +1,71 @@
 const initialCards = [
   {
     name: "Yosemite Valley",
-    link: "ttps://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
   {
-    name: "Yosemite Valley",
-    link: "ttps://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    name: "Lake Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
   },
   {
-    name: "Yosemite Valley",
-    link: "ttps://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    name: "Bald Mountains",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
   },
   {
-    name: "Yosemite Valley",
-    link: "ttps://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
   },
   {
-    name: "Yosemite Valley",
-    link: "ttps://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    name: "Vanoise National Park",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
   },
   {
-    name: "Yosemite Valley",
-    link: "ttps://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
 
+/* -------------------------------------------------------------------------- */
+/*                                  Elements                                  */
+/* -------------------------------------------------------------------------- */
+
 const profileFormElement = document.querySelector(".profile");
+const profileEditBtn = document.querySelector(".profile__edit-button");
 const profileDesc = profileFormElement.querySelector(".profile__description");
 const profileName = profileFormElement.querySelector(".profile__name");
 
 const modalElement = document.querySelector(".modal");
+const modalCloseBtn = document.querySelector(".modal__close-button");
 const inputName = modalElement.querySelector(".form__input_type_name");
 const inputDesc = modalElement.querySelector(".form__input_type_description");
-
-const profileEditBtn = document.querySelector(".profile__edit-button");
-const modalCloseBtn = document.querySelector(".modal__close-button");
 const formSubmitBtn = modalElement.querySelector(".form__button");
+
+const cardTemplate = document.querySelector("#card-template").content;
+const cardGallery = document.querySelector(".gallery__cards");
+
+/* -------------------------------------------------------------------------- */
+/*                                  Functions                                 */
+/* -------------------------------------------------------------------------- */
+
+function toggleModal() {
+  inputName.value = profileName.textContent;
+  inputDesc.value = profileDesc.textContent;
+  modalElement.classList.toggle("modal_opened");
+}
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.cloneNode(true);
+  const cardImageElement = cardElement.querySelector(".card__image");
+  const cardTextElement = cardElement.querySelector(".card__text");
+  cardTextElement.textContent = data.name;
+  cardImageElement.src = data.link;
+  cardImageElement.alt = data.name + " photo";
+  return cardElement;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                               Event Handlers                               */
+/* -------------------------------------------------------------------------- */
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
@@ -45,12 +75,16 @@ function handleProfileFormSubmit(evt) {
   toggleModal();
 }
 
-function toggleModal() {
-  inputName.value = profileName.textContent;
-  inputDesc.value = profileDesc.textContent;
-  modalElement.classList.toggle("modal_opened");
-}
+/* -------------------------------------------------------------------------- */
+/*                               Event Listeners                              */
+/* -------------------------------------------------------------------------- */
 
 profileEditBtn.addEventListener("click", toggleModal);
 formSubmitBtn.addEventListener("click", handleProfileFormSubmit);
 modalCloseBtn.addEventListener("click", toggleModal);
+
+for (let i = 0; i < initialCards.length; i++) {
+  const data = initialCards[i];
+  const cardElement = getCardElement(data);
+  cardGallery.append(cardElement);
+}
