@@ -25,17 +25,17 @@ const initialCards = [
   },
 ];
 
-const editButton = document.querySelector(".profile__edit-button");
-const modalCloseButton = document.querySelector("modal__close-button");
-const modal = document.querySelector("modal");
+const profileEditBtn = document.querySelector(".profile__edit-button");
+const modalCloseBtn = document.querySelector(".modal__close-button");
+const modal = document.querySelector(".modal");
 
 function openModal() {
-  modal.classList.toggle("modal__opened");
+  modal.classList.toggle("modal_opened");
 }
 
 function closeModal() {
-  modal.classList.toggle("modal__opened");
+  modal.classList.toggle("modal_opened");
 }
 
-editButton.addEventListener("click", openModal);
-modalCloseButton.addEventListener("click", closeModal);
+profileEditBtn.addEventListener("click", openModal);
+modalCloseBtn.addEventListener("click", closeModal);
