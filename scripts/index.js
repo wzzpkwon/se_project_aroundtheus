@@ -36,9 +36,9 @@ const profileName = profileFormElement.querySelector(".profile__name");
 
 const modalElement = document.querySelector(".modal");
 const modalCloseBtn = document.querySelector(".modal__close-button");
+const modalForm = modalElement.querySelector(".modal__form");
 const inputName = modalElement.querySelector(".form__input_type_name");
 const inputDesc = modalElement.querySelector(".form__input_type_description");
-const formSubmitBtn = modalElement.querySelector(".form__button");
 
 const cardTemplate = document.querySelector("#card-template").content;
 const cardGallery = document.querySelector(".gallery__cards");
@@ -47,9 +47,12 @@ const cardGallery = document.querySelector(".gallery__cards");
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function toggleModal() {
+function openProfileModal() {
   inputName.value = profileName.textContent;
   inputDesc.value = profileDesc.textContent;
+}
+
+function toggleModal() {
   modalElement.classList.toggle("modal_opened");
 }
 
@@ -80,7 +83,8 @@ function handleProfileFormSubmit(evt) {
 /* -------------------------------------------------------------------------- */
 
 profileEditBtn.addEventListener("click", toggleModal);
-formSubmitBtn.addEventListener("click", handleProfileFormSubmit);
+profileEditBtn.addEventListener("click", openProfileModal);
+modalForm.addEventListener("submit", handleProfileFormSubmit);
 modalCloseBtn.addEventListener("click", toggleModal);
 
 for (let i = 0; i < initialCards.length; i++) {
