@@ -87,8 +87,7 @@ profileEditBtn.addEventListener("click", openProfileModal);
 modalForm.addEventListener("submit", handleProfileFormSubmit);
 modalCloseBtn.addEventListener("click", toggleModal);
 
-for (let i = 0; i < initialCards.length; i++) {
-  const data = initialCards[i];
+initialCards.forEach((data) => {
   const cardElement = getCardElement(data);
-  cardGallery.append(cardElement);
-}
+  cardGallery.prepend(cardElement);
+});
