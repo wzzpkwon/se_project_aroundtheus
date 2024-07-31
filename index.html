@@ -9,21 +9,6 @@
     <title>Around the U.S.</title>
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <template id="card-template">
-      <li class="card">
-        <img src="" alt="" class="card__image" />
-        <div class="card__content">
-          <h2 class="card__text"></h2>
-          <button aria-label="like" class="card__like-button" type="button">
-            <img
-              src="./images/heart.svg"
-              alt="heart icon"
-              class="card__like-button-img"
-            />
-          </button>
-        </div>
-      </li>
-    </template>
   </head>
 
   <body class="page">
@@ -56,12 +41,13 @@
                 class="profile__edit-button-img"
               />
             </button>
-            <div class="modal">
+            <div class="modal" id="edit-modal">
               <div class="modal__container">
                 <button
                   aria-label="close"
                   class="modal__close-button"
                   type="button"
+                  id="profile-modal-close-button"
                 >
                   <img
                     src="./images/close-button.svg"
@@ -70,7 +56,7 @@
                   />
                 </button>
                 <h2 class="modal__title">Edit Profile</h2>
-                <form id="modal-form" class="modal__form form">
+                <form id="edit-profile-form" class="modal__form form">
                   <fieldset class="form__fieldset">
                     <label class="form__label">
                       <input
@@ -104,6 +90,46 @@
               class="profile__add-button-img"
             />
           </button>
+          <div class="modal" id="add-card-modal">
+            <div class="modal__container">
+              <button
+                aria-label="close"
+                class="modal__close-button"
+                type="button"
+                id="card-modal-close-button"
+              >
+                <img
+                  src="./images/close-button.svg"
+                  alt="close icon"
+                  class="modal__close-button-img"
+                />
+              </button>
+              <h2 class="modal__title">New place</h2>
+              <form id="add-card-form" class="modal__form form">
+                <fieldset class="form__fieldset">
+                  <label class="form__label">
+                    <input
+                      type="text"
+                      class="form__input form__input_type_title"
+                      placeholder="title"
+                      required
+                    />
+                  </label>
+                  <label class="form__label">
+                    <input
+                      type="text"
+                      class="form__input form__input_type_url"
+                      placeholder="Image URL"
+                      required
+                    />
+                  </label>
+                </fieldset>
+                <fieldset class="form__fieldset">
+                  <button class="form__button" type="submit">Save</button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
         </section>
         <section class="gallery">
           <ul class="gallery__cards"></ul>
@@ -113,6 +139,21 @@
         <p class="footer__content">© 2022 Around The U.S.</p>
       </footer>
     </div>
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__content">
+          <h2 class="card__text"></h2>
+          <button aria-label="like" class="card__like-button" type="button">
+            <img
+              src="./images/heart.svg"
+              alt="heart icon"
+              class="card__like-button-img"
+            />
+          </button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
