@@ -12,7 +12,7 @@
 }
 
 .card__content {
-  padding: 25px 20px;
+  padding: 25px 18px;
   background-color: #ffffff;
   color: #000000;
   display: flex;
@@ -21,6 +21,7 @@
 }
 
 .card__text {
+  max-width: 90%;
   margin: 0;
   font-size: 24px;
   line-height: 1.21;
@@ -31,9 +32,10 @@
 }
 
 .card__like-button {
-  width: 20.76px;
-  height: 18.13px;
-  background-color: #ffffff;
+  width: 21px;
+  height: 18px;
+  background: no-repeat url("../images/heart.svg");
+  background-size: cover;
   border: none;
   padding: 0;
   transition: opacity 0.1s linear;
@@ -42,4 +44,8 @@
 
 .card__like-button:hover {
   opacity: 0.5;
+}
+
+.card__like-button_liked {
+  background-image: url("../images/active_like-button.svg");
 }

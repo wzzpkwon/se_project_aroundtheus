@@ -21,6 +21,7 @@
           aria-label="aroundtheus-logo"
         />
       </header>
+
       <main class="content">
         <section class="profile">
           <img
@@ -41,13 +42,12 @@
                 class="profile__edit-button-img"
               />
             </button>
-            <div class="modal" id="edit-modal">
+            <div class="modal" id="edit-profile-modal">
               <div class="modal__container">
                 <button
                   aria-label="close"
                   class="modal__close-button"
                   type="button"
-                  id="profile-modal-close-button"
                 >
                   <img
                     src="./images/close-button.svg"
@@ -96,7 +96,6 @@
                 aria-label="close"
                 class="modal__close-button"
                 type="button"
-                id="card-modal-close-button"
               >
                 <img
                   src="./images/close-button.svg"
@@ -144,13 +143,11 @@
         <img src="" alt="" class="card__image" />
         <div class="card__content">
           <h2 class="card__text"></h2>
-          <button aria-label="like" class="card__like-button" type="button">
-            <img
-              src="./images/heart.svg"
-              alt="heart icon"
-              class="card__like-button-img"
-            />
-          </button>
+          <button
+            aria-label="like"
+            class="card__like-button"
+            type="button"
+          ></button>
         </div>
       </li>
     </template>
