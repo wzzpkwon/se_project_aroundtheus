@@ -140,7 +140,29 @@
     </div>
     <template id="card-template">
       <li class="card">
+        <button
+          aria-label="delete"
+          class="card__delete-button"
+          type="reset"
+        ></button>
         <img src="" alt="" class="card__image" />
+        <div class="modal" id="image-view-modal">
+          <div class="modal__container modal__container_type_image">
+            <button
+              aria-label="close"
+              class="modal__close-button modal__close-button_type_image"
+              type="button"
+            >
+              <img
+                src="./images/close-button.svg"
+                alt="close icon"
+                class="modal__close-button-img"
+              />
+            </button>
+            <img src="" alt="" class="modal__image" />
+            <h2 class="modal__image-title"></h2>
+          </div>
+        </div>
         <div class="card__content">
           <h2 class="card__text"></h2>
           <button

@@ -80,19 +80,35 @@ function getCardElement(data) {
   const cardImageElement = cardElement.querySelector(".card__image");
   const cardTextElement = cardElement.querySelector(".card__text");
   const cardLikeButton = cardElement.querySelector(".card__like-button");
-
-  //find delete button
+  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+  //image view modal element
+  const imageViewModal = cardElement.querySelector("#image-view-modal");
+  const imageViewModalCloseBtn = imageViewModal.querySelector(
+    ".modal__close-button"
+  );
+  const modalImageElement = imageViewModal.querySelector(".modal__image");
+  const modalImageTitle = imageViewModal.querySelector(".modal__image-title");
 
   //add the event listener to the delete button
-  // cardElement.remove();
+  cardDeleteBtn.addEventListener("click", () => {
+    const cardElement = document.querySelector(".card");
+    cardElement.remove();
+  });
 
   //add click listener to the cardImage element
+  cardImageElement.addEventListener("click", () => toggleModal(imageViewModal));
   // openmodal with previewImageModal
+  imageViewModalCloseBtn.addEventListener("click", () =>
+    toggleModal(imageViewModal)
+  );
 
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("card__like-button_liked");
   });
 
+  modalImageTitle.textContent = data.name;
+  modalImageElement.src = data.link;
+  modalImageElement.alt = data.name + " photo preview";
   cardTextElement.textContent = data.name;
   cardImageElement.src = data.link;
   cardImageElement.alt = data.name + " photo";
