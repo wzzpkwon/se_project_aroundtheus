@@ -73,7 +73,7 @@ function toggleModal(modal) {
 
 function renderCard(data, method = "prepend") {
   const cardElement = getCardElement(data);
-  cardGallery["append"](cardElement);
+  cardGallery[method](cardElement);
 }
 
 function getCardElement(data) {
@@ -123,7 +123,7 @@ const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   const name = cardInputTitle.value;
   const link = cardInputUrl.value;
-  renderCard({ name, link }, cardGallery);
+  renderCard({ name, link });
   toggleModal(addCardModal);
   evt.target.reset();
 };
@@ -150,4 +150,4 @@ cardAddBtn.addEventListener("click", () => toggleModal(addCardModal));
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleCardFormSubmit);
 
-initialCards.forEach((data) => renderCard(data, cardGallery));
+initialCards.forEach((data) => renderCard(data, "append"));
