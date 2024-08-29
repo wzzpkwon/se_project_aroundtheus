@@ -61,23 +61,33 @@
                   <fieldset class="form__fieldset">
                     <label class="form__label">
                       <input
+                        id="name-input"
                         type="text"
                         class="form__input form__input_type_name"
                         placeholder="Name"
+                        minlength="2"
+                        maxlength="40"
                         required
                       />
+                      <span class="form__input-error name-input-error"></span>
                     </label>
                     <label class="form__label">
                       <input
+                        id="desc-input"
                         type="text"
                         class="form__input form__input_type_description"
                         placeholder="Description"
+                        minlength="2"
+                        maxlength="200"
                         required
                       />
+                      <span class="form__input-error desc-input-error"></span>
                     </label>
                   </fieldset>
                   <fieldset class="form__fieldset">
-                    <button class="form__button" type="submit">Save</button>
+                    <button class="form__button form__submit" type="submit">
+                      Save
+                    </button>
                   </fieldset>
                 </form>
               </div>
@@ -111,23 +121,31 @@
                 <fieldset class="form__fieldset">
                   <label class="form__label">
                     <input
+                      id="title-input"
                       type="text"
                       class="form__input form__input_type_title"
                       placeholder="title"
+                      minlength="1"
+                      maxlength="30"
                       required
                     />
+                    <span class="form__input-error title-input-error"></span>
                   </label>
                   <label class="form__label">
                     <input
-                      type="text"
+                      id="url-input"
+                      type="url"
                       class="form__input form__input_type_url"
                       placeholder="Image URL"
                       required
                     />
+                    <span class="form__input-error url-input-error"></span>
                   </label>
                 </fieldset>
                 <fieldset class="form__fieldset">
-                  <button class="form__button" type="submit">Save</button>
+                  <button class="form__button form__submit" type="submit">
+                    Save
+                  </button>
                 </fieldset>
               </form>
             </div>
