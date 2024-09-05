@@ -29,6 +29,10 @@ const initialCards = [
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
 
+//modal element
+const modal = document.querySelector(".modal");
+const modalContainer = document.querySelector(".modal__container");
+
 //profile element
 const profileFormElement = document.querySelector(".profile");
 const profileName = profileFormElement.querySelector(".profile__name");
@@ -125,6 +129,13 @@ const handleCardFormSubmit = (evt) => {
   evt.target.reset();
 };
 
+const handleEscModalClose = (evt) => {
+  const isModalOpen = document.querySelector(".modal_opened");
+  if (evt.key === "Escape" && isModalOpen) {
+    toggleModal(isModalOpen);
+  }
+};
+
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
 /* -------------------------------------------------------------------------- */
@@ -147,3 +158,14 @@ editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleCardFormSubmit);
 
 initialCards.forEach((data) => renderCard(data, "append"));
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (evt) => {
+    const isOutside = !evt.target.closest(".modal__container");
+    if (isOutside) {
+      toggleModal(modal);
+    }
+  });
+});
+
+document.addEventListener("keydown", handleEscModalClose);
