@@ -57,7 +57,11 @@
                   />
                 </button>
                 <h2 class="modal__title">Edit Profile</h2>
-                <form id="edit-profile-form" class="modal__form form">
+                <form
+                  id="edit-profile-form"
+                  class="modal__form form"
+                  novalidate
+                >
                   <fieldset class="form__fieldset">
                     <label class="form__label">
                       <input
@@ -117,7 +121,7 @@
                 />
               </button>
               <h2 class="modal__title">New place</h2>
-              <form id="add-card-form" class="modal__form form">
+              <form id="add-card-form" class="modal__form form" novalidate>
                 <fieldset class="form__fieldset">
                   <label class="form__label">
                     <input
@@ -198,5 +202,6 @@
       </li>
     </template>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
