@@ -29,18 +29,14 @@ const initialCards = [
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
 
-//modal element
-const modal = document.querySelector(".modal");
-const modalContainer = document.querySelector(".modal__container");
-
 //profile element
-const profileFormElement = document.querySelector(".profile");
-const profileName = profileFormElement.querySelector(".profile__name");
-const profileDesc = profileFormElement.querySelector(".profile__description");
+const profileSection = document.querySelector(".profile");
+const profileName = profileSection.querySelector(".profile__name");
+const profileDesc = profileSection.querySelector(".profile__description");
 
 //edit modal element
 const editProfileModal = document.querySelector("#edit-profile-modal");
-const editProfileForm = document.querySelector("#edit-profile-form");
+const editProfileForm = document.forms["edit-profile-form"];
 const profileInputName = editProfileModal.querySelector(
   ".form__input_type_name"
 );
@@ -50,7 +46,7 @@ const profileInputDesc = editProfileModal.querySelector(
 
 //card modal element
 const addCardModal = document.querySelector("#add-card-modal");
-const addCardForm = document.querySelector("#add-card-form");
+const addCardForm = document.forms["add-card-form"];
 const cardInputTitle = addCardModal.querySelector(".form__input_type_title");
 const cardInputUrl = addCardModal.querySelector(".form__input_type_url");
 
@@ -129,11 +125,12 @@ const handleCardFormSubmit = (evt) => {
   evt.target.reset();
 };
 
-const handleEscModalClose = (evt) => {
-  const isModalOpen = document.querySelector(".modal_opened");
-  if (evt.key === "Escape" && isModalOpen) {
-    toggleModal(isModalOpen);
+const handleEscModalToggle = (evt) => {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    openedModal && toggleModal(openedModal);
   }
+  evt.target.removeEventListener("keydown", handleEscModalToggle);
 };
 
 /* -------------------------------------------------------------------------- */
@@ -168,4 +165,4 @@ document.querySelectorAll(".modal").forEach((modal) => {
   });
 });
 
-document.addEventListener("keydown", handleEscModalClose);
+document.addEventListener("keydown", handleEscModalToggle);
