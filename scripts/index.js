@@ -68,8 +68,14 @@ const modalImageTitle = imageViewModal.querySelector(".modal__image-title");
 /*                                  Functions                                 */
 /* -------------------------------------------------------------------------- */
 
-function toggleModal(modal) {
-  modal.classList.toggle("modal_opened");
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", handleEscModalToggle);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", handleEscModalToggle);
 }
 
 function renderCard(data, method = "prepend") {
@@ -95,7 +101,7 @@ function getCardElement(data) {
     modalImageTitle.textContent = data.name;
     modalImageElement.src = data.link;
     modalImageElement.alt = data.name + " photo preview";
-    toggleModal(imageViewModal);
+    openModal(imageViewModal);
   });
 
   cardLikeButton.addEventListener("click", () => {
@@ -113,7 +119,7 @@ const handleProfileFormSubmit = (evt) => {
   profileName.textContent = profileInputName.value;
   profileDesc.textContent = profileInputDesc.value;
 
-  toggleModal(editProfileModal);
+  closeModal(editProfileModal);
 };
 
 const handleCardFormSubmit = (evt) => {
@@ -121,16 +127,15 @@ const handleCardFormSubmit = (evt) => {
   const name = cardInputTitle.value;
   const link = cardInputUrl.value;
   renderCard({ name, link });
-  toggleModal(addCardModal);
+  closeModal(addCardModal);
   evt.target.reset();
 };
 
 const handleEscModalToggle = (evt) => {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
-    openedModal && toggleModal(openedModal);
+    openedModal && closeModal(openedModal);
   }
-  evt.target.removeEventListener("keydown", handleEscModalToggle);
 };
 
 /* -------------------------------------------------------------------------- */
@@ -139,17 +144,17 @@ const handleEscModalToggle = (evt) => {
 
 closeBtns.forEach((btn) => {
   const modal = btn.closest(".modal");
-  btn.addEventListener("click", () => toggleModal(modal));
+  btn.addEventListener("click", () => closeModal(modal));
 });
 
 profileEditBtn.addEventListener("click", () => {
   profileInputName.value = profileName.textContent;
   profileInputDesc.value = profileDesc.textContent;
 
-  toggleModal(editProfileModal);
+  openModal(editProfileModal);
 });
 
-cardAddBtn.addEventListener("click", () => toggleModal(addCardModal));
+cardAddBtn.addEventListener("click", () => openModal(addCardModal));
 
 editProfileForm.addEventListener("submit", handleProfileFormSubmit);
 addCardForm.addEventListener("submit", handleCardFormSubmit);
@@ -160,9 +165,7 @@ document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (evt) => {
     const isOutside = !evt.target.closest(".modal__container");
     if (isOutside) {
-      toggleModal(modal);
+      closeModal(modal);
     }
   });
 });
-
-document.addEventListener("keydown", handleEscModalToggle);
