@@ -1,3 +1,6 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -25,6 +28,14 @@ const initialCards = [
   },
 ];
 
+const validatorSettings = {
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active",
+};
+
 /* -------------------------------------------------------------------------- */
 /*                                  Elements                                  */
 /* -------------------------------------------------------------------------- */
@@ -51,6 +62,7 @@ const cardInputTitle = addCardModal.querySelector(".form__input_type_title");
 const cardInputUrl = addCardModal.querySelector(".form__input_type_url");
 
 //card template element
+const cardSelector = "#card-template";
 const cardTemplate = document.querySelector("#card-template").content;
 const cardGallery = document.querySelector(".gallery__cards");
 
@@ -63,6 +75,20 @@ const closeBtns = document.querySelectorAll(".modal__close-button");
 const imageViewModal = document.querySelector("#image-view-modal");
 const modalImageElement = imageViewModal.querySelector(".modal__image");
 const modalImageTitle = imageViewModal.querySelector(".modal__image-title");
+
+/* -------------------------------------------------------------------------- */
+/*                                Card Instance                               */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                  Validator                                 */
+/* -------------------------------------------------------------------------- */
+
+const editFormValidator = new FormValidator(validatorSettings, editProfileForm);
+const addFormValidator = new FormValidator(validatorSettings, addCardForm);
+
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -79,40 +105,41 @@ function closeModal(modal) {
 }
 
 function renderCard(data, method = "prepend") {
-  const cardElement = getCardElement(data);
+  const card = new Card(data, cardSelector);
+  const cardElement = card.getView(data);
   cardGallery[method](cardElement);
 }
 
-function getCardElement(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageElement = cardElement.querySelector(".card__image");
-  const cardTextElement = cardElement.querySelector(".card__text");
-  const cardLikeButton = cardElement.querySelector(".card__like-button");
-  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+// function getCardElement(data) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageElement = cardElement.querySelector(".card__image");
+//   const cardTextElement = cardElement.querySelector(".card__text");
+//   const cardLikeButton = cardElement.querySelector(".card__like-button");
+//   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
 
-  //add the event listener to the delete button
-  cardDeleteBtn.addEventListener("click", () => {
-    const cardElement = cardDeleteBtn.closest(".card");
-    cardElement.remove();
-  });
+//   // add the event listener to the delete button
+//   cardDeleteBtn.addEventListener("click", () => {
+//     const cardElement = cardDeleteBtn.closest(".card");
+//     cardElement.remove();
+//   });
 
-  //add click listener to the cardImage element
-  cardImageElement.addEventListener("click", () => {
-    modalImageTitle.textContent = data.name;
-    modalImageElement.src = data.link;
-    modalImageElement.alt = data.name + " photo preview";
-    openModal(imageViewModal);
-  });
+//   // add click listener to the cardImage element
+//   cardImageElement.addEventListener("click", () => {
+//     modalImageTitle.textContent = data.name;
+//     modalImageElement.src = data.link;
+//     modalImageElement.alt = data.name + " photo preview";
+//     openModal(imageViewModal);
+//   });
 
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__like-button_liked");
-  });
+//   cardLikeButton.addEventListener("click", () => {
+//     cardLikeButton.classList.toggle("card__like-button_liked");
+//   });
 
-  cardTextElement.textContent = data.name;
-  cardImageElement.src = data.link;
-  cardImageElement.alt = data.name + " photo";
-  return cardElement;
-}
+//   cardTextElement.textContent = data.name;
+//   cardImageElement.src = data.link;
+//   cardImageElement.alt = data.name + " photo";
+//   return cardElement;
+// }
 
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();

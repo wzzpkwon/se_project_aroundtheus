@@ -77,7 +77,7 @@ function enableValidation(options) {
   });
 }
 
-const config = {
+const options = {
   formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
@@ -86,4 +86,4 @@ const config = {
   errorClass: "form__input-error_active",
 };
 
-enableValidation(config);
+enableValidation(options);
