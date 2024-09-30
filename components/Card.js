@@ -34,7 +34,7 @@ export default class Card {
     this._element
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._handlePreviewImage();
+        this._handleImageClick(this);
       });
   }
 
@@ -47,15 +47,6 @@ export default class Card {
   _handleDeleteCard() {
     this._element.remove();
     this._element = null;
-  }
-
-  _handlePreviewImage() {
-    this._element.querySelector(".modal__image-title").textContent = this._name;
-    this._modalImageElement = this._element.querySelector(".modal__image");
-    this._modalImageElement.src = this._link;
-    this._modalImageElement.alt = `${this._name} photo preview`;
-    this._imageViewModal = this._element.querySelector("#image-view-modal");
-    openModal(this._imageViewModal);
   }
 
   getView() {

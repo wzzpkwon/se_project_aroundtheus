@@ -70,15 +70,12 @@ const cardGallery = document.querySelector(".gallery__cards");
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const cardAddBtn = document.querySelector(".profile__add-button");
 const closeBtns = document.querySelectorAll(".modal__close-button");
+const submitBtns = document.querySelectorAll(".form__button");
 
 //image-view modal element
 const imageViewModal = document.querySelector("#image-view-modal");
 const modalImageElement = imageViewModal.querySelector(".modal__image");
 const modalImageTitle = imageViewModal.querySelector(".modal__image-title");
-
-/* -------------------------------------------------------------------------- */
-/*                                Card Instance                               */
-/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /*                                  Validator                                 */
@@ -105,7 +102,7 @@ function closeModal(modal) {
 }
 
 function renderCard(data, method = "prepend") {
-  const card = new Card(data, cardSelector);
+  const card = new Card(data, cardSelector, handleImageClick);
   const cardElement = card.getView(data);
   cardGallery[method](cardElement);
 }
@@ -119,17 +116,19 @@ function renderCard(data, method = "prepend") {
 
 //   // add the event listener to the delete button
 //   cardDeleteBtn.addEventListener("click", () => {
+
 //     const cardElement = cardDeleteBtn.closest(".card");
+
 //     cardElement.remove();
 //   });
 
 //   // add click listener to the cardImage element
-//   cardImageElement.addEventListener("click", () => {
-//     modalImageTitle.textContent = data.name;
-//     modalImageElement.src = data.link;
-//     modalImageElement.alt = data.name + " photo preview";
-//     openModal(imageViewModal);
-//   });
+// cardImageElement.addEventListener("click", () => {
+//   modalImageTitle.textContent = data.name;
+//   modalImageElement.src = data.link;
+//   modalImageElement.alt = data.name + " photo preview";
+//   openModal(imageViewModal);
+// });
 
 //   cardLikeButton.addEventListener("click", () => {
 //     cardLikeButton.classList.toggle("card__like-button_liked");
@@ -141,12 +140,20 @@ function renderCard(data, method = "prepend") {
 //   return cardElement;
 // }
 
+const handleImageClick = (data) => {
+  modalImageTitle.textContent = data.name;
+  modalImageElement.src = data.link;
+  modalImageElement.alt = `${data.name} photo preview`;
+  openModal(imageViewModal);
+};
+
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
   profileName.textContent = profileInputName.value;
   profileDesc.textContent = profileInputDesc.value;
 
   closeModal(editProfileModal);
+  evt.target.reset();
 };
 
 const handleCardFormSubmit = (evt) => {
@@ -156,6 +163,7 @@ const handleCardFormSubmit = (evt) => {
   renderCard({ name, link });
   closeModal(addCardModal);
   evt.target.reset();
+  addFormValidator.resetValidation();
 };
 
 const handleEscModalToggle = (evt) => {
@@ -179,6 +187,7 @@ profileEditBtn.addEventListener("click", () => {
   profileInputDesc.value = profileDesc.textContent;
 
   openModal(editProfileModal);
+  editFormValidator.enableBtn();
 });
 
 cardAddBtn.addEventListener("click", () => openModal(addCardModal));

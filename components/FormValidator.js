@@ -8,22 +8,6 @@ export default class FormValidator {
     this._formElement = formElement;
   }
 
-  _setEventListeners() {
-    this._inputList = [
-      ...this._formElement.querySelectorAll(this._inputSelector),
-    ];
-    this._buttonElement = this._formElement.querySelector(
-      this._submitButtonSelector
-    );
-
-    this._inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
-        this._checkInputValidity();
-        this._toggleButtonState();
-      });
-    });
-  }
-
   _showInputError(inputElement) {
     const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
@@ -43,11 +27,9 @@ export default class FormValidator {
   }
 
   _checkInputValidity(inputElement) {
-    if (!inputElement.validity.valid) {
-      this._showInputError(inputElement);
-    } else {
-      this._hideInputError(inputElement);
-    }
+    !inputElement.validity.valid
+      ? this._showInputError(inputElement)
+      : this._hideInputError(inputElement);
   }
 
   _hasInvalidInput() {
@@ -56,28 +38,35 @@ export default class FormValidator {
     });
   }
 
-  _disableBtn() {
+  _setEventListeners() {
+    this._inputList = [
+      ...this._formElement.querySelectorAll(this._inputSelector),
+    ];
+    this._buttonElement = this._formElement.querySelector(
+      this._submitButtonSelector
+    );
+    this.toggleBtnState();
+
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener("input", () => {
+        this._checkInputValidity(inputElement);
+        this.toggleBtnState(inputElement);
+      });
+    });
+  }
+
+  toggleBtnState() {
+    this._hasInvalidInput() ? this.disableBtn() : this.enableBtn();
+  }
+
+  disableBtn() {
     this._buttonElement.classList.add(this._inactiveButtonClass);
     this._buttonElement.disabled = true;
   }
 
-  _enableBtn() {
+  enableBtn() {
     this._buttonElement.classList.remove(this._inactiveButtonClass);
     this._buttonElement.disabled = false;
-  }
-
-  _toggleButtonState() {
-    if (this._hasInvalidInput()) {
-      this._disableBtn();
-    } else {
-      this._enableBtn();
-    }
-  }
-
-  _processForm() {
-    //check field's validity
-    //change the state of the submit btn
-    //add all handlers
   }
 
   enableValidation() {
@@ -89,8 +78,9 @@ export default class FormValidator {
     this._setEventListeners();
   }
 
-  handleSubmitBtn() {
-    //disable the state of the btn after successful submission
-    //reset form validation (optional)
+  resetValidation() {
+    this._formElement.reset();
+
+    this.toggleBtnState();
   }
 }
