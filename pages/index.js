@@ -28,7 +28,8 @@ const initialCards = [
   },
 ];
 
-const validatorSettings = {
+const config = {
+  formSelector: ".form",
   inputSelector: ".form__input",
   submitButtonSelector: ".form__button",
   inactiveButtonClass: "form__button_disabled",
@@ -70,7 +71,6 @@ const cardGallery = document.querySelector(".gallery__cards");
 const profileEditBtn = document.querySelector(".profile__edit-button");
 const cardAddBtn = document.querySelector(".profile__add-button");
 const closeBtns = document.querySelectorAll(".modal__close-button");
-const submitBtns = document.querySelectorAll(".form__button");
 
 //image-view modal element
 const imageViewModal = document.querySelector("#image-view-modal");
@@ -81,11 +81,19 @@ const modalImageTitle = imageViewModal.querySelector(".modal__image-title");
 /*                                  Validator                                 */
 /* -------------------------------------------------------------------------- */
 
-const editFormValidator = new FormValidator(validatorSettings, editProfileForm);
-const addFormValidator = new FormValidator(validatorSettings, addCardForm);
+const formValidators = {};
 
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
+const enableValidation = (config) => {
+  const formList = [...document.querySelectorAll(config.formSelector)];
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
+
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+};
+enableValidation(config);
 
 /* -------------------------------------------------------------------------- */
 /*                                  Functions                                 */
@@ -141,9 +149,10 @@ function renderCard(data, method = "prepend") {
 // }
 
 const handleImageClick = (data) => {
-  modalImageTitle.textContent = data._name;
-  modalImageElement.src = data._link;
-  modalImageElement.alt = `${data._name} photo preview`;
+  console.log(data);
+  modalImageTitle.textContent = data.name;
+  modalImageElement.src = data.link;
+  modalImageElement.alt = `${data.name} photo preview`;
   openModal(imageViewModal);
 };
 
@@ -163,7 +172,7 @@ const handleCardFormSubmit = (evt) => {
   renderCard({ name, link });
   closeModal(addCardModal);
   evt.target.reset();
-  addFormValidator.resetValidation();
+  formValidators["addCardForm"].resetValidation();
 };
 
 const handleEscModalToggle = (evt) => {
@@ -186,8 +195,8 @@ profileEditBtn.addEventListener("click", () => {
   profileInputName.value = profileName.textContent;
   profileInputDesc.value = profileDesc.textContent;
 
+  formValidators["editProfileForm"].resetValidation();
   openModal(editProfileModal);
-  editFormValidator.enableBtn();
 });
 
 cardAddBtn.addEventListener("click", () => openModal(addCardModal));

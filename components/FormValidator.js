@@ -81,6 +81,6 @@ export default class FormValidator {
   resetValidation() {
     this._formElement.reset();
 
-    this.toggleBtnState();
+    this.disableBtn();
   }
 }

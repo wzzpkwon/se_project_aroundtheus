@@ -58,6 +58,7 @@
                 </button>
                 <h2 class="modal__title">Edit Profile</h2>
                 <form
+                  name="editProfileForm"
                   id="edit-profile-form"
                   class="modal__form form"
                   novalidate
@@ -121,7 +122,12 @@
                 />
               </button>
               <h2 class="modal__title">New place</h2>
-              <form id="add-card-form" class="modal__form form" novalidate>
+              <form
+                name="addCardForm"
+                id="add-card-form"
+                class="modal__form form"
+                novalidate
+              >
                 <fieldset class="form__fieldset">
                   <label class="form__label">
                     <input
