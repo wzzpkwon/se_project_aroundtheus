@@ -148,10 +148,10 @@ function renderCard(data, method = "prepend") {
 //   return cardElement;
 // }
 
-const handleImageClick = (data) => {
-  modalImageTitle.textContent = data._name;
-  modalImageElement.src = data._link;
-  modalImageElement.alt = `${data._name} photo preview`;
+const handleImageClick = ({ name, link }) => {
+  modalImageTitle.textContent = name;
+  modalImageElement.src = link;
+  modalImageElement.alt = `${name} photo preview`;
   openModal(imageViewModal);
 };
 
