@@ -79,8 +79,10 @@ export default class FormValidator {
   }
 
   resetValidation() {
-    this._formElement.reset();
-
     this.disableBtn();
+
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
   }
 }

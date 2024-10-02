@@ -115,39 +115,6 @@ function renderCard(data, method = "prepend") {
   cardGallery[method](cardElement);
 }
 
-// function getCardElement(data) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageElement = cardElement.querySelector(".card__image");
-//   const cardTextElement = cardElement.querySelector(".card__text");
-//   const cardLikeButton = cardElement.querySelector(".card__like-button");
-//   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-
-//   // add the event listener to the delete button
-//   cardDeleteBtn.addEventListener("click", () => {
-
-//     const cardElement = cardDeleteBtn.closest(".card");
-
-//     cardElement.remove();
-//   });
-
-//   // add click listener to the cardImage element
-// cardImageElement.addEventListener("click", () => {
-//   modalImageTitle.textContent = data.name;
-//   modalImageElement.src = data.link;
-//   modalImageElement.alt = data.name + " photo preview";
-//   openModal(imageViewModal);
-// });
-
-//   cardLikeButton.addEventListener("click", () => {
-//     cardLikeButton.classList.toggle("card__like-button_liked");
-//   });
-
-//   cardTextElement.textContent = data.name;
-//   cardImageElement.src = data.link;
-//   cardImageElement.alt = data.name + " photo";
-//   return cardElement;
-// }
-
 const handleImageClick = ({ name, link }) => {
   modalImageTitle.textContent = name;
   modalImageElement.src = link;
@@ -191,10 +158,10 @@ closeBtns.forEach((btn) => {
 });
 
 profileEditBtn.addEventListener("click", () => {
+  formValidators["editProfileForm"].resetValidation();
   profileInputName.value = profileName.textContent;
   profileInputDesc.value = profileDesc.textContent;
 
-  formValidators["editProfileForm"].resetValidation();
   openModal(editProfileModal);
 });
 
