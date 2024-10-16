@@ -1,5 +1,10 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import "./styles/index.css";
+import stepsSrc from "./images/steps.png";
+
+const stepsImage = document.getElementById("image-steps");
+stepsImage.src = stepsSrc;
 
 const initialCards = [
   {
@@ -180,3 +185,5 @@ document.querySelectorAll(".modal").forEach((modal) => {
     }
   });
 });
+
+console.log("Hello, World!");
