@@ -66,7 +66,6 @@ export const cardInputUrl = addCardModal.querySelector(".form__input_type_url");
 //card template element
 export const cardSelector = "#card-template";
 export const cardTemplate = document.querySelector("#card-template").content;
-export const cardGallery = document.querySelector(".gallery__cards");
 
 //button element
 export const profileEditBtn = document.querySelector(".profile__edit-button");

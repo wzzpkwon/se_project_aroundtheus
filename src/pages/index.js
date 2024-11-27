@@ -12,11 +12,11 @@ import {
   profileInputDesc,
   profileEditBtn,
   cardAddBtn,
-  cardGallery,
   cardSelector,
 } from "../utils/constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import { data } from "autoprefixer";
 
 /* -------------------------------------------------------------------------- */
 /*                                  Validator                                 */
@@ -92,12 +92,9 @@ cardPopup.setEventListeners();
 const cardList = new Section(
   {
     data: initialCards,
-    renderer: (data) => {
-      const cardElement = createCard(data);
-      cardList.addItem(cardElement);
-    },
+    renderer: renderCard,
   },
-  cardGallery
+  ".gallery__cards"
 );
 cardList.renderItems();
 
@@ -107,8 +104,8 @@ cardList.renderItems();
 
 profileEditBtn.addEventListener("click", () => {
   formValidators["editProfileForm"].resetValidation();
-  profileInputName.value = profileName.textContent;
-  profileInputDesc.value = profileDesc.textContent;
+  const userData = newUserInfo.getUserInfo();
+  profilePopup.setInputValues(userData);
 
   profilePopup.open();
 });
