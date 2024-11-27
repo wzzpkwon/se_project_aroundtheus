@@ -25,11 +25,11 @@ This project aims to build a responsive webpage to showcase overall knowledge an
 
 - Used media queries at breakpoints for tablet and mobile sized resolutions to display change in elements and its styles in different screen sizes.
 
-![Desktop View](./images/desktop.png)
+![Desktop View](./src/images/desktop.png)
 [Desktop View]
-![Tablet View](./images/tablet.png)
+![Tablet View](./src/images/tablet.png)
 [Tablet View]
-![Mobile View](./images/mobile.png)
+![Mobile View](./src/images/mobile.png)
 [Mobile View]
 
 ## Link
