@@ -2,6 +2,7 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 import "./index.css";
 import {
   initialCards,
@@ -96,7 +97,19 @@ const cardList = new Section(
   },
   ".gallery__cards"
 );
-cardList.renderItems();
+// cardList.renderItems();
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1/",
+  headers: {
+    authorization: "957bb492-20d5-460a-b352-3c365c73eea4",
+    "Content-Type": "application/json",
+  },
+});
+
+api.getInitialCards().then((cardData) => {
+  cardList.renderItems(cardData);
+});
 
 /* -------------------------------------------------------------------------- */
 /*                               Event Listeners                              */
